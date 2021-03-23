@@ -1,0 +1,35 @@
+<div class="p-grid">
+  <div class="p-col-4">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <label for="search">Buscar...</label>
+      </div>
+      <div class="p-col-12">
+        <input pInputText  type="text" [(ngModel)]="search" name="search" (keyup)="onType()"/>
+      </div>
+      <div class="p-col-12">
+        <label for="ciudad">Pais</label>
+      </div>
+      <div class="p-col-12">
+        <p-multiSelect [options]="countries" optionLabel="name" (onChange)="onSelectCountry($event)" id="test"></p-multiSelect>
+      </div>
+      <div class="p-col-12">
+        <label for="ciudad">Ciudad</label>
+      </div>
+      <div class="p-col-12">
+        <p-multiSelect [options]="cities" optionLabel="city.name" (onChange)="onSelectCity($event)"></p-multiSelect>
+      </div>
+    </div>
+    <button type="button" (click)="onClear()">Clear last filter</button>
+  </div>
+  <div class="p-col-8">
+    <div *ngFor="let item of filteredItems">
+      <div>
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.price }}</p>
+        <p>{{ item.placeOf.name }}</p>
+        <p>{{ item.placeOf.city.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

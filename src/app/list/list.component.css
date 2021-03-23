@@ -1,0 +1,3 @@
+div#test > div.p-multiselect {
+  width: 100% !important;
+}
